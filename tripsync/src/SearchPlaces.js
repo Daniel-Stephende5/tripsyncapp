@@ -9,7 +9,7 @@ import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import './LandingPage.css';
 
-const Navbar = ({ onTripsClick ,onExpensesClick,handleLogoClick}) => {
+const Navbar = ({ onTripsClick ,onExpensesClick,handleLogoClick, onlogoutClick}) => {
   return (
     <nav className="navbar">
       <div className="navbar-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>TripSync</div>
@@ -18,7 +18,7 @@ const Navbar = ({ onTripsClick ,onExpensesClick,handleLogoClick}) => {
         <li><button className="navbar-link" onClick={onTripsClick}>Trips</button></li>
         <li><button className="navbar-link">Profile</button></li>
         <li><button className="navbar-link">Settings</button></li>
-        <li><button className="navbar-link">Logout</button></li>
+        <li><button className="navbar-link"onClick={onlogoutClick}>Logout</button></li>
       </ul>
     </nav>
   );
@@ -41,6 +41,9 @@ const SearchPlaces = () => {
   };
   const handleLogoClick = () => {
     navigate('/landingpage');  // Navigate to landing page when logo is clicked
+  };
+  const handleLogoutClick = () => {
+    window.location.href = 'https://tripsyncspp2.vercel.app/';
   };
   const fetchReviews = async (placeIds) => {
     try {
