@@ -173,7 +173,7 @@ const SearchPlaces = () => {
 
   return (
     <div>
-      <Navbar onTripsClick={handleTripsClick} onExpensesClick={handleExpensesClick} handleLogoClick={handleLogoClick} />
+      <Navbar onTripsClick={handleTripsClick} onExpensesClick={handleExpensesClick} handleLogoClick={handleLogoClick} onlogoutClick={handleLogoutClick}  />
 
       <div className="map-container">
         <MapContainer center={coordinates} zoom={13} style={{ minHeight: '600px', width: '100%' }}>
