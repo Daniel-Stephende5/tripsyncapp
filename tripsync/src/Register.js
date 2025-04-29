@@ -26,7 +26,7 @@ const Register = () => {
       });
       setSuccessMessage('Registration successful!');
       setTimeout(() => {
-        navigate('/'); // Redirect to the login page after successful registration
+       window.location.href = 'https://tripsyncspp2.vercel.app/'; // Redirect to the login page after successful registration
       }, 2000);
     } catch (error) {
       setErrorMessage(error.response?.data || 'Registration failed!');
