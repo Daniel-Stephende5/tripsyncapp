@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ExpensePages.css';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ onTripsClick, onExpensesClick,handleLogoClick }) => (
+const Navbar = ({ onTripsClick, onExpensesClick,handleLogoClick, onlogoutClick  }) => (
   <nav className="navbar">
       <div className="navbar-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>TripSync</div>
     <ul className="navbar-links">
@@ -10,7 +10,7 @@ const Navbar = ({ onTripsClick, onExpensesClick,handleLogoClick }) => (
       <li><button className="navbar-link" onClick={onTripsClick}>Trips</button></li>
       <li><button className="navbar-link">Profile</button></li>
       <li><button className="navbar-link">Settings</button></li>
-      <li><button className="navbar-link">Logout</button></li>
+     <li><button className="navbar-link"onClick={onlogoutClick}>Logout</button></li>
     </ul>
   </nav>
 );
@@ -29,7 +29,9 @@ const ExpensesPage = () => {
   const handleLogoClick = () => {
     navigate('/landingpage');  // Navigate to landing page when logo is clicked
   };
-  
+  const handleLogoutClick = () => {
+    window.location.href = 'https://tripsyncspp2.vercel.app/';
+  };
 
   const fetchExpenses = () => {
     fetch('https://tripsync-1.onrender.com/api/expenses')
@@ -107,8 +109,8 @@ const ExpensesPage = () => {
 
   return (
     <div className="expenses-container">
-      <Navbar onTripsClick={handleTripsClick} onExpensesClick={handleExpensesClick}handleLogoClick={handleLogoClick} />
-
+      <Navbar onTripsClick={handleTripsClick} onExpensesClick={handleExpensesClick}handleLogoClick={handleLogoClick} onlogoutClick={handleLogoutClick}  />
+      
       <h1 className="expenses-title">💰 Total Expenditures</h1>
       <div className="total-amount">₱ {total.toFixed(2)}</div>
 
